@@ -1,10 +1,10 @@
 # podman-pgdump
 
-A simple bash script to dump all postgresql databases in a running podman container and send ntfy notifications. pg_dumpall_ntfy.sh
+A simple bash script to dump all postgresql databases in a running podman container and send ntfy notifications. This should also work with docker, just replace `podman` with `docker` in the script (untested). pg_dumpall_ntfy.sh
 
 ## Usage
 
-The script does not do comprehensive checking, but can be run manually or automated (eg CRON). I use this script to do database dumps on an independent schedule, and to place the backups in a directory that is subsequently backed up (I use [docker-borgmatic](https://github.com/borgmatic-collective/docker-borgmatic) in a podman pod). Setting a suitable retention (automation interval, plus `BACKUP_ROTATE` setting) allows for multiple database dumps to be retained per backup run.
+The script does not do comprehensive checking, but can be run manually or automated (eg CRON). I use this script to do database dumps on an independent schedule, and to place the backups in a directory that is subsequently backed up (I use [docker-borgmatic](https://github.com/borgmatic-collective/docker-borgmatic) in a podman pod). Setting a suitable retention (automation interval, plus `BACKUP_ROTATE` setting) allows for multiple database dumps to be retained per backup run. Requires adding appropriate specific settings to the environment variables listed at the head of the script.
 
 ## Important note
 
