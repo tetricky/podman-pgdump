@@ -20,7 +20,6 @@ NTFY_AUTH="ntfy_username:ntfy_password"
 send_notification() {
   tag="$1"
   body="$2"
-#  echo -e "$body" | mail -s "$subject" "$RECIPIENT_EMAIL"
   curl --silent -u $NTFY_AUTH -H "Priority: high" -H "Tags: $tag" -H "X-Title: $NTFY_TOPIC" -d "$body" $NTFY_SERVER/$NTFY_TOPIC > /dev/null
 }
 
